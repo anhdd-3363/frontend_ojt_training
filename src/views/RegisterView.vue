@@ -8,9 +8,9 @@ import * as yup from "yup";
 import { registerApi } from "@apis/auth";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toast-notification";
-import "vue-toast-notification/dist/theme-sugar.css";
 import { useAuthStore } from "@stores/auth";
 import { registerMessage } from "@locales/vi/messages";
+import { phoneRegex } from "@constants/regex";
 
 const router = useRouter();
 const $toast = useToast();
@@ -20,7 +20,7 @@ const DEFAULT_AVATAR_URL =
 
 const schema = yup.object({
   name: yup.string().required(registerMessage.required),
-  phone: yup.string().required(registerMessage.required),
+  phone: yup.string().matches(phoneRegex, registerMessage.phone),
   address: yup.string().required(registerMessage.required),
   email: yup
     .string()
@@ -54,8 +54,8 @@ async function onSuccess(values) {
       avatar: DEFAULT_AVATAR_URL,
     });
     $toast.success(registerMessage.success);
-    const { accessToken, user } = data;
-    authStore.login(accessToken, user);
+    const { accessToken } = data;
+    authStore.loginUser(accessToken);
     router.push("/");
   } catch (error) {
     $toast.error(registerMessage.error);

@@ -2,7 +2,6 @@
 import BaseButton from "@components/BaseButton.vue";
 import { formatPrice } from "@utils/function";
 import { useToast } from "vue-toast-notification";
-import "vue-toast-notification/dist/theme-sugar.css";
 import { cartMessage } from "@locales/vi/messages";
 import IconAddToCart from "@components/icons/IconAddToCart.vue";
 
@@ -13,8 +12,12 @@ const props = defineProps(["productDetail"]);
 const $toast = useToast();
 
 const handleAddToCart = () => {
-  cartStore.addToCart(props.productDetail);
-  $toast.success(cartMessage.success);
+  try {
+    cartStore.addToCart(props.productDetail);
+    $toast.success(cartMessage.success);
+  } catch ({ message: error }) {
+    $toast.error(error);
+  }
 };
 </script>
 
@@ -52,10 +55,15 @@ const handleAddToCart = () => {
           <li class="leading-8">
             Trọng lượng: <span>{{ productDetail.weight }}</span>
           </li>
+          <li class="leading-8">
+            Số lượng sản phẩm còn:
+            <span class="text-lg font-bold">{{ productDetail.quantity }}</span>
+          </li>
         </ul>
+
         <BaseButton
           class="bg-red-700 hover:bg-red-800 py-4 flex items-center justify-center"
-          v-on:click="handleAddToCart"
+          @click="handleAddToCart"
         >
           <IconAddToCart />
           THÊM VÀO GIỎ HÀNG

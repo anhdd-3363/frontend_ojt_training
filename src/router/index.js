@@ -7,6 +7,9 @@ import ProductDetailView from "@views/ProductDetailView.vue";
 import ProductsByCaterogy from "@views/ProductsByCaterogy.vue";
 import SearchView from "@views/SearchView.vue";
 import ProfileView from "@views/ProfileView.vue";
+import { useAuthStore } from "@stores/auth";
+import { TOKEN_KEY } from "@constants/storage";
+import Cookies from "js-cookie";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,10 +55,34 @@ const router = createRouter({
       name: "profile",
       component: ProfileView,
     },
+    {
+      path: "/404",
+      name: "404",
+      component: () => import("@views/404Page.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/404",
+    },
   ],
   scrollBehavior() {
     return { top: 0 };
   },
+});
+
+router.beforeEach((to, _from, next) => {
+  const token = Cookies.get(TOKEN_KEY);
+  const authStore = useAuthStore();
+
+  if (token) {
+    if (to.path === "/login") {
+      next("/");
+      return;
+    }
+    authStore.getIdentity();
+  }
+
+  next();
 });
 
 export default router;

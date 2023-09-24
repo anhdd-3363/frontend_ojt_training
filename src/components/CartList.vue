@@ -4,7 +4,6 @@ import CartItem from "@components/CartItem.vue";
 import BaseButton from "@components/BaseButton.vue";
 import { formatPrice } from "@utils/function";
 import { useToast } from "vue-toast-notification";
-import "vue-toast-notification/dist/theme-sugar.css";
 import { orderMessage } from "@locales/vi/messages";
 import { useCartStore } from "@stores/cart";
 
@@ -31,6 +30,6 @@ const handleOrder = () => {
         formatPrice(cartStore.getTotalPrice)
       }}</span>
     </p>
-    <BaseButton v-on:click="handleOrder">Đặt hàng</BaseButton>
+    <BaseButton @click="handleOrder">Đặt hàng</BaseButton>
   </div>
 </template>

@@ -1,58 +1,50 @@
 <script setup>
 import { getCategoriesApi, getCategoryApi } from "@apis/category.js";
 import { getBooksByCategoryApi } from "@apis/book.js";
-import { onMounted, ref, watch } from "vue";
+import { onMounted, reactive, watchEffect } from "vue";
 
 import SelectSort from "@components/SelectSort.vue";
 import BookItem from "@components/BookItem.vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-const id = ref();
-const category = ref({});
-const books = ref([]);
-const categories = ref([]);
-const paramsSort = ref();
+const state = reactive({
+  category: {},
+  books: [],
+  categories: [],
+  paramsSort: {},
+});
 
-const handleSortApi = async (params) => {
-  paramsSort.value = { ...params };
-
-  const { data: booksData } = await getBooksByCategoryApi(id.value, params);
-  books.value = booksData;
+const handleSort = (params) => {
+  state.paramsSort = params;
 };
 
-const hanldeApi = async function (newId) {
+const fetchProductsByCategory = async function (id, params) {
   try {
-    const { data: categoryData } = await getCategoryApi(newId);
-    const { data: booksData } = await getBooksByCategoryApi(newId);
+    const { data: categoryData } = await getCategoryApi(id);
+    const { data: booksData } = await getBooksByCategoryApi(id, params);
     const { data: categoriesData } = await getCategoriesApi();
-    category.value = categoryData;
-    books.value = booksData;
-    categories.value = categoriesData;
+    state.category = categoryData;
+    state.books = booksData;
+    state.categories = categoriesData;
   } catch (error) {
     // handle error
   }
 };
 
-watch(
-  () => route.params.id,
-  async (newId) => {
-    id.value = newId;
-    await hanldeApi(newId);
-    if (paramsSort.value) {
-      await handleSortApi(paramsSort.value);
-    }
-  },
+onMounted(
+  watchEffect(async () => {
+    await fetchProductsByCategory(route.params.id, state.paramsSort);
+  }),
   { immediate: true }
 );
-onMounted(hanldeApi);
 </script>
 
 <template>
   <div class="flex mb-4">
     <div class="w-64 mr-4 h-fit border-2 border-b-0 h">
       <p class="bg-red-700 p-4 text-white">DANH MỤC SẢN PHẨM</p>
-      <template v-for="(item, index) in categories" :key="index">
+      <template v-for="item in state.categories" :key="item.id">
         <router-link
           :to="{ path: `/collections/${item.id}` }"
           class="p-4 block border-b-2"
@@ -63,13 +55,13 @@ onMounted(hanldeApi);
 
     <div class="grid grid-cols-4 gap-4 w-full">
       <div class="col-span-full flex justify-between">
-        <p class="text-2xl font-bold">{{ category.name }}</p>
+        <p class="text-2xl font-bold">{{ state.category.name }}</p>
         <SelectSort
           class="max-h-9"
-          @handle-sort="(params) => handleSortApi(params)"
+          @handle-sort="(params) => handleSort(params)"
         />
       </div>
-      <template v-for="book in books" :key="book.id">
+      <template v-for="book in state.books" :key="book.id">
         <BookItem :book="book" />
       </template>
     </div>

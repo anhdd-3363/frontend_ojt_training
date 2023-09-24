@@ -6,13 +6,11 @@ import IconLogin from "@icons/IconLogin.vue";
 import IconRegister from "@icons/IconRegister.vue";
 import IconProfile from "@icons/IconProfile.vue";
 import { useAuthStore } from "@stores/auth";
-import { computed } from "vue";
 
-const handleLogout = () => {
-  window.location.href = "/";
-};
 const authStore = useAuthStore();
-const isLogin = computed(() => authStore.getUser);
+const handleLogout = () => {
+  authStore.logout();
+};
 </script>
 
 <template>
@@ -33,7 +31,7 @@ const isLogin = computed(() => authStore.getUser);
       </router-link>
       <SearchItem />
       <ul class="font-medium flex flex-row">
-        <template v-if="isLogin">
+        <template v-if="authStore.identity">
           <li>
             <router-link
               to="/profile"
@@ -42,7 +40,7 @@ const isLogin = computed(() => authStore.getUser);
             >
               <IconProfile />
               <span>
-                {{ isLogin.name }}
+                {{ authStore.identity.email }}
               </span>
             </router-link>
           </li>

@@ -8,7 +8,14 @@ const router = useRouter();
 const textSearch = ref("");
 
 const handleSearch = function () {
-  router.push({ name: "search", query: { q: textSearch.value } });
+  setTimeout(() => {
+    router.push({
+      name: "search",
+      query: {
+        q: textSearch.value,
+      },
+    });
+  }, 2000);
 };
 </script>
 

@@ -4,12 +4,18 @@ import IconPlus from "@components/icons/IconPlus.vue";
 import IconMinus from "@components/icons/IconMinus.vue";
 import IconDelete from "@components/icons/IconDelete.vue";
 import { useCartStore } from "@stores/cart";
+import { useToast } from "vue-toast-notification";
 
+const $toast = useToast();
 const props = defineProps(["book"]);
 const cartStore = useCartStore();
 
 const handlePlus = () => {
-  cartStore.increment(props.book.id);
+  try {
+    cartStore.increment(props.book.id);
+  } catch ({ message: error }) {
+    $toast.error(error);
+  }
 };
 
 const handleMinus = () => {
@@ -23,7 +29,7 @@ const handleDelete = () => {
 
 <template>
   <div
-    class="border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex justify-between items-center mb-6 p-5"
+    class="border border-gray-200 rounded-lg hover:shadow-lg transition-shadow flex justify-between items-center mb-6 p-5 select-none"
   >
     <router-link :to="{ path: `/books/${book.id}` }">
       <div>
@@ -52,13 +58,13 @@ const handleDelete = () => {
     <p class="text-xl font-bold text-red-700">
       {{ formatPrice(book.inCartQuantity * book.price) }}
     </p>
-    <div class="flex items-center justify-center">
-      <IconPlus v-on:click="handlePlus" />
-      <p class="text-xl font-bold m-6">
+    <div class="flex items-center justify-center outline-none">
+      <IconPlus @click="handlePlus" />
+      <span class="text-xl font-bold m-10">
         {{ book.inCartQuantity }}
-      </p>
-      <IconMinus v-on:click="handleMinus" />
+      </span>
+      <IconMinus @click="handleMinus" />
     </div>
-    <IconDelete class="mr-4" v-on:click="handleDelete" />
+    <IconDelete class="mr-4" @click="handleDelete" />
   </div>
 </template>

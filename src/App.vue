@@ -8,5 +8,3 @@ import BaseLayout from "@layouts/BaseLayout.vue";
     <RouterView />
   </BaseLayout>
 </template>
-
-

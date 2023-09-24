@@ -1,4 +1,6 @@
 import { defineStore } from "pinia";
+import { cartMessage } from "../locales/vi/messages";
+
 export const useCartStore = defineStore("cart", {
   state: () => ({
     cart: [],
@@ -14,8 +16,11 @@ export const useCartStore = defineStore("cart", {
     addToCart(book) {
       const inCartItem = this.cart.find((item) => item.id === book.id);
       if (inCartItem) {
-        if (inCartItem.inCartQuantity < inCartItem.quantity)
+        if (inCartItem.inCartQuantity < inCartItem.quantity) {
           inCartItem.inCartQuantity += 1;
+        } else {
+          throw new Error(cartMessage.outOfStock);
+        }
       } else {
         this.cart.push({
           ...book,
@@ -27,6 +32,9 @@ export const useCartStore = defineStore("cart", {
       const inCartItem = this.cart.find((item) => item.id === id);
       if (inCartItem && inCartItem.inCartQuantity < inCartItem.quantity)
         inCartItem.inCartQuantity += 1;
+      else {
+        throw new Error(cartMessage.outOfStock);
+      }
     },
     decrement(id) {
       const inCartItem = this.cart.find((item) => item.id === id);
@@ -46,4 +54,5 @@ export const useCartStore = defineStore("cart", {
       this.cart = [];
     },
   },
+  persist: true,
 });

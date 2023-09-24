@@ -9,10 +9,10 @@ import { onMounted, ref } from "vue";
 
 const homepageData = ref([]);
 const pictures = ref([]);
-const ITEMS_PER_PAGE = 5;
-const params = { _limit: ITEMS_PER_PAGE };
+const ITEMS_PER_CATEGORY = 5;
+const params = { _limit: ITEMS_PER_CATEGORY };
 
-const getHomepageData = async () => {
+const fetchHomepageData = async () => {
   try {
     const { data: banners } = await getBannersApi();
     pictures.value = banners;
@@ -26,7 +26,7 @@ const getHomepageData = async () => {
   }
 };
 
-onMounted(getHomepageData);
+onMounted(fetchHomepageData);
 </script>
 
 <template>

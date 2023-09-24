@@ -7,7 +7,7 @@ import { ref, onMounted } from "vue";
 const route = useRoute();
 const id = route.params.id;
 const bookDetail = ref({});
-const getBookDetailData = async () => {
+const fetchBookDetailData = async () => {
   try {
     const { data } = await getDetailBookApi(id);
     bookDetail.value = data;
@@ -15,7 +15,7 @@ const getBookDetailData = async () => {
     // handle error
   }
 };
-onMounted(getBookDetailData);
+onMounted(fetchBookDetailData);
 </script>
 
 <template>
