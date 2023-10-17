@@ -80,13 +80,12 @@ const style = reactive({
     "mr-2 inline-block rounded-t-lg border-b-2 border-blue-600 p-4 text-blue-600",
   tabTitle:
     "mr-2 inline-block cursor-pointer rounded-t-lg border-b-2 p-4 text-lg",
-
-  image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2 ",
+  image: "w-[25%] max-lg:w-[40%] max-sm:w-full max-sm:mb-2",
   contentContainer: "pl-8 w-[75%] max-sm:p-0 max-sm:w-full",
-  contentTitle: "leading-8 ",
-  descriptionTitle: "mb-8 border-2  rounded-lg	overflow-hidden	 ",
+  contentTitle: "leading-8",
+  descriptionTitle: "mb-8 border-2 rounded-lg overflow-hidden",
   button:
-    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-2 mt-4  rounded-lg px-3 text-sm duration-300 ",
+    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-2 mt-4 rounded-lg px-3 text-sm duration-300",
   listBookTitle:
     "absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xl font-medium text-gray-900 text-center",
 });
