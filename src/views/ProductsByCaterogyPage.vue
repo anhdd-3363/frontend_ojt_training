@@ -19,6 +19,7 @@ import { useToast } from "vue-toast-notification";
 import { productApiMessage } from "@locales/vi/messages";
 import BaseLoading from "@components/BaseLoading.vue";
 import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
+import { calculatePageSum } from "@utils/function";
 
 const $toast = useToast();
 const route = useRoute();
@@ -61,9 +62,7 @@ const handleSort = (params) => {
   state.params = { ...state.params, ...params };
   state.noFilterParams = state.params;
 };
-const calculatePageSum = (booksLength) => {
-  return Math.ceil(booksLength / ITEMS_PER_PAGE);
-};
+
 // change params again when search is enabled
 const handleSearch = (params) => {
   state.params = { ...state.params, ...params };
@@ -196,7 +195,7 @@ const fetchBooksTotal = async function (params) {
         params,
       );
       state.noPagiBooks = booksData;
-      state.pageSum = calculatePageSum(booksData.length);
+      state.pageSum = calculatePageSum(booksData.length, ITEMS_PER_PAGE);
       isLoading.booksTotal = false;
     }
   } catch (error) {
@@ -209,11 +208,7 @@ const fetchBooksTotal = async function (params) {
 watch(
   () => state.pickedValue,
   () => {
-    if (state.pickedValue !== 0) {
-      state.pageSum = calculatePageSum(state.books.length);
-    } else {
-      state.pageSum = calculatePageSum(state.noPagiBooks.length);
-    }
+    state.pageSum = calculatePageSum(state.noPagiBooks.length, ITEMS_PER_PAGE);
   },
 );
 

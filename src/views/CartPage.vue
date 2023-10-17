@@ -33,7 +33,9 @@ const total = computed(() => {
           class="h-full"
         />
       </div>
-      <p class="my-8 text-2xl">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+      <p class="my-8 text-center text-2xl max-sm:text-lg">
+        Bạn chưa có sản phẩm nào trong giỏ hàng
+      </p>
       <router-link to="/">
         <BaseButton>Tiếp tục mua sắm</BaseButton>
       </router-link>

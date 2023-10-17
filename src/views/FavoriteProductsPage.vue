@@ -62,8 +62,10 @@ const handleRemoveItem = (product) => {
       <div>
         <img src="@images/favorite_empty_icon.png" class="h-48" />
       </div>
-      <div class="flex flex-col items-center text-2xl">
-        <p class="mb-4">Không có sản phẩm trong danh sách yêu thích.</p>
+      <div class="flex flex-col items-center">
+        <p class="mb-4 text-center text-2xl max-sm:text-lg">
+          Không có sản phẩm trong danh sách yêu thích.
+        </p>
         <router-link to="/">
           <BaseButton>Tiếp tục mua sắm</BaseButton>
         </router-link>

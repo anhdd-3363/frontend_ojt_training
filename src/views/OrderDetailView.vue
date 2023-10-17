@@ -73,11 +73,13 @@ const order = computed(() => orderDetail.value[0]?.order);
         </div>
       </template>
       <template v-else>
-        <p class="text-center text-3xl">Bạn không có quyền xem đơn hàng này</p>
+        <p class="text-center text-xl font-bold">
+          Bạn không có quyền xem đơn hàng này
+        </p>
       </template>
     </div>
     <div v-else class="mt-12">
-      <p class="text-center text-3xl">Đơn hàng không tồn tại</p>
+      <p class="text-center text-xl font-bold">Đơn hàng không tồn tại</p>
     </div>
   </template>
   <template v-else>

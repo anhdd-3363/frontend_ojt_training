@@ -14,9 +14,7 @@ const handleSearch = function () {
   timeoutID.value = setTimeout(() => {
     router.push({
       name: "search",
-      query: {
-        q: textSearch.value,
-      },
+      query: { q: textSearch.value },
     });
   }, DELAY);
 };

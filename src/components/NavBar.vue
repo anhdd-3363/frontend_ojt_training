@@ -22,11 +22,13 @@ const style = reactive({
   nav: "flex h-20  min-w-[375px] flex-wrap items-center justify-between py-4",
   logo: "mr-3 inline-block h-12",
   title: "self-center text-2xl max-sm:hidden",
-  ul: "float-right mt-2 flex min-w-[150px] flex-col rounded-lg border border-gray-100 bg-gray-50 p-3 font-medium shadow-2xl xl:mt-0 xl:flex-row xl:space-x-8 xl:border-0 xl:bg-inherit xl:p-0 xl:shadow-none",
+  iconWrap: "flex h-10 w-10 pr-2 xl:p-0 items-center justify-center",
   link: "flex cursor-pointer items-center rounded px-3 py-2 text-gray-900 hover:bg-gray-100 xl:border-0 xl:p-0 xl:hover:bg-transparent",
+  ul: "float-right mt-2 flex min-w-[150px] flex-col rounded-lg border border-gray-100 bg-gray-50 p-3 font-medium shadow-2xl xl:mt-0 xl:flex-row xl:space-x-8 xl:border-0 xl:bg-inherit xl:p-0 xl:shadow-none",
   button:
     "inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 xl:hidden",
-  iconWrap: "flex h-10 w-10 pr-2 xl:p-0 items-center justify-center",
+  badge:
+    "absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white",
 });
 
 const handleLogout = () => {
@@ -50,11 +52,7 @@ const handleClick = (path) => {
       <button :class="style.button" @click="isHidden = !isHidden">
         <IconMenu />
       </button>
-      <div
-        class="w-full xl:block xl:w-auto"
-        id="navbar-default"
-        :class="{ hidden: isHidden }"
-      >
+      <div class="w-full xl:block xl:w-auto" :class="{ hidden: isHidden }">
         <ul :class="style.ul">
           <template v-if="user">
             <li @click="handleClick('/profile')" :class="style.link">
@@ -69,9 +67,7 @@ const handleClick = (path) => {
               <div :class="style.iconWrap">
                 <div class="relative mr-3">
                   <IconHeart />
-                  <div
-                    class="absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white"
-                  >
+                  <div :class="style.badge">
                     {{ productStore.favoriteProducts.length }}
                   </div>
                 </div>
@@ -93,20 +89,22 @@ const handleClick = (path) => {
           </template>
           <template v-else>
             <li @click="handleClick('/login')" :class="style.link">
-              <IconLogin />
+              <div :class="style.iconWrap">
+                <IconLogin />
+              </div>
               <span> Đăng nhập </span>
             </li>
             <li @click="handleClick('/register')" :class="style.link">
-              <IconRegister />
+              <div :class="style.iconWrap">
+                <IconRegister />
+              </div>
               <span> Đăng ký </span>
             </li>
             <li @click="handleClick('/pages/favorite')" :class="style.link">
               <div :class="style.iconWrap">
                 <div class="relative mr-3">
                   <IconHeart />
-                  <div
-                    class="absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white"
-                  >
+                  <div :class="style.badge">
                     {{ productStore.favoriteProducts.length }}
                   </div>
                 </div>
@@ -114,7 +112,9 @@ const handleClick = (path) => {
               <span> Yêu thích </span>
             </li>
             <li @click="handleClick('/cart')" :class="style.link">
-              <IconCart />
+              <div :class="style.iconWrap">
+                <IconCart />
+              </div>
               <span> Giỏ hàng</span>
             </li>
           </template>

@@ -13,7 +13,7 @@ const style = reactive({
   container: "flex h-[50vh] flex-col items-center justify-center text-center",
   successText: "mt-4 text-3xl font-bold text-green-500 max-sm:text-2xl",
   failedText: "mt-4 text-3xl font-bold text-red-500 max-sm:text-2xl",
-  infoText: "text-gray-500 text-xl max-sm:text-lg",
+  infoText: "mt-2 text-gray-500 text-xl max-sm:text-lg",
 });
 </script>
 

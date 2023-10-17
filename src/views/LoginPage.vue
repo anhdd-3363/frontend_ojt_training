@@ -32,7 +32,7 @@ async function handleLogin(values) {
     Cookies.set(TOKEN_KEY, accessToken);
     await authStore.setUserInfo(user);
     $toast.success(loginMessage.success);
-    router.push("/");
+    router.back();
   } catch (error) {
     // handle error
     $toast.error(loginMessage.error);

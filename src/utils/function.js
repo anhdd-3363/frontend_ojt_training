@@ -12,3 +12,7 @@ export const formatPrice = (price) => {
 export const formatDate = (date) => {
   return moment(date).format("DD MMMM YYYY, h:mm:ss a");
 };
+
+export const calculatePageSum = (total, limit) => {
+  return Math.ceil(total / limit);
+};
