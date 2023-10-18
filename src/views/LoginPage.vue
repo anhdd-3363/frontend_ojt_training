@@ -7,7 +7,9 @@ import { useForm } from "vee-validate";
 import * as yup from "yup";
 import { useRouter } from "vue-router";
 import { loginApi } from "@apis/auth.js";
+import { getCartByUserApi } from "@apis/cart";
 import { useAuthStore } from "@stores/auth";
+import { useCartStore } from "@stores/cart";
 import { useToast } from "vue-toast-notification";
 import { loginMessage } from "@locales/vi/messages";
 import { TOKEN_KEY } from "@constants/storage";
@@ -16,6 +18,7 @@ import Cookies from "js-cookie";
 const $toast = useToast();
 const router = useRouter();
 const authStore = useAuthStore();
+const cartStore = useCartStore();
 
 const schema = yup.object({
   email: yup.string().required(loginMessage.required).email(loginMessage.email),
@@ -32,6 +35,9 @@ async function handleLogin(values) {
     Cookies.set(TOKEN_KEY, accessToken);
     await authStore.setUserInfo(user);
     $toast.success(loginMessage.success);
+    const { id: userId } = user;
+    const { data: cartData } = await getCartByUserApi(userId);
+    cartStore.setCart(cartData);
     router.back();
   } catch (error) {
     // handle error

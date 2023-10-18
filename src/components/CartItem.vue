@@ -1,14 +1,16 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 import { formatPrice } from "@utils/function.js";
 import IconPlus from "@components/icons/IconPlus.vue";
 import IconMinus from "@components/icons/IconMinus.vue";
 import IconDelete from "@components/icons/IconDelete.vue";
 import { useCartStore } from "@stores/cart";
 import { useToast } from "vue-toast-notification";
+import { putCartItemApi, deleteCartItemApi } from "@apis/cart";
 
 const $toast = useToast();
-const props = defineProps(["book"]);
+const props = defineProps(["item"]);
+const book = computed(() => props.item.book);
 const cartStore = useCartStore();
 const style = reactive({
   container:
@@ -20,20 +22,33 @@ const style = reactive({
   adjust: "flex items-center justify-center outline-none",
 });
 
-const handlePlus = () => {
+const handlePlus = async () => {
   try {
-    cartStore.increment(props.book.id);
+    const inCartItem = cartStore.cart.find((item) => item.id === props.item.id);
+    cartStore.increment(inCartItem.id);
+    await putCartItemApi(inCartItem.id, inCartItem);
   } catch ({ message: error }) {
     $toast.error(error);
   }
 };
 
-const handleMinus = () => {
-  cartStore.decrement(props.book.id);
+const handleMinus = async () => {
+  try {
+    const inCartItem = cartStore.cart.find((item) => item.id === props.item.id);
+    cartStore.decrement(inCartItem.id);
+    await putCartItemApi(inCartItem.id, inCartItem);
+  } catch ({ message: error }) {
+    $toast.error(error);
+  }
 };
 
-const handleDelete = () => {
-  cartStore.removeItem(props.book.id);
+const handleDelete = async () => {
+  try {
+    cartStore.removeItem(props.item.id);
+    await deleteCartItemApi(props.item.id);
+  } catch ({ message: error }) {
+    $toast.error(error);
+  }
 };
 </script>
 
@@ -54,12 +69,12 @@ const handleDelete = () => {
       </p>
     </div>
     <p :class="style.price">
-      {{ formatPrice(book.inCartQuantity * book.price) }}
+      {{ formatPrice(item.inCartQuantity * book.price) }}
     </p>
     <div :class="style.adjust">
       <IconPlus @click="handlePlus" class="max-sm:w-4" />
       <span :class="style.quantity">
-        {{ book.inCartQuantity }}
+        {{ item.inCartQuantity }}
       </span>
       <IconMinus @click="handleMinus" class="max-sm:w-4" />
     </div>

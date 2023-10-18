@@ -7,7 +7,10 @@ import IconAddToCart from "@components/icons/IconAddToCart.vue";
 import { useCartStore } from "@stores/cart";
 import { useToast } from "vue-toast-notification";
 import { cartMessage } from "@locales/vi/messages";
+import { useAuthStore } from "@stores/auth";
+import { postCartItemApi, putCartItemApi } from "@apis/cart";
 
+const authStore = useAuthStore();
 const props = defineProps(["book"]);
 const productStore = useProductStore();
 const cartStore = useCartStore();
@@ -25,7 +28,8 @@ const style = reactive({
   oldPrice: "text-gray-500 line-through max-sm:text-sm",
   layer:
     "absolute left-0 top-0 z-10 h-full w-full rounded-lg bg-black/60 p-5 opacity-0 transition-opacity duration-300 hover:opacity-100 text-white",
-  button: "absolute bottom-0 left-0 right-0 mx-auto flex items-center justify-center bg-red-700 hover:bg-red-800 p-3 max-sm:p-2 text-sm duration-300",
+  button:
+    "absolute bottom-0 left-0 right-0 mx-auto flex items-center justify-center bg-red-700 hover:bg-red-800 p-3 max-sm:p-2 text-sm duration-300",
   description: "line-clamp-3 max-sm:line-clamp-2",
 });
 
@@ -33,15 +37,36 @@ const handleAddSeenProduct = (product) => {
   productStore.addSeenProduct(product);
 };
 
-const handleAddToCart = () => {
+const handleAddToCart = async () => {
+  if (!authStore.userInfo) {
+    $toast.error(cartMessage.loginRequired);
+    return;
+  }
   try {
-    cartStore.addToCart(props.book);
-    $toast.success(cartMessage.success);
+    const inCartItem = cartStore.cart.find(
+      (item) => props.book.id === item.book.id,
+    );
+    if (inCartItem) {
+      if (inCartItem.inCartQuantity < props.book.quantity) {
+        cartStore.increment(inCartItem.id);
+        await putCartItemApi(inCartItem.id, inCartItem);
+        $toast.success(cartMessage.success);
+      } else throw new Error(cartMessage.outOfStock);
+    } else {
+      const newCartItem = {
+        book: props.book,
+        userId: authStore.userInfo.id,
+        inCartQuantity: 1,
+      };
+      const { data } = await postCartItemApi(newCartItem);
+      newCartItem.id = data.id;
+      cartStore.addItem(newCartItem);
+      $toast.success(cartMessage.success);
+    }
   } catch ({ message: error }) {
     $toast.error(error);
   }
 };
-
 </script>
 
 <template>
@@ -61,11 +86,11 @@ const handleAddToCart = () => {
     </div>
     <div class="p-4">
       <router-link
-      :to="{ path: `/books/${book.slug}` }"
-      @click="handleAddSeenProduct(book)"
-    >
-    <h5 :class="style.name">{{ book.name }}</h5>
-    </router-link>
+        :to="{ path: `/books/${book.slug}` }"
+        @click="handleAddSeenProduct(book)"
+      >
+        <h5 :class="style.name">{{ book.name }}</h5>
+      </router-link>
       <div class="flex justify-between">
         <div :class="style.price">{{ formatPrice(book.price) }}</div>
         <div :class="style.oldPrice">{{ formatPrice(book.price * 1.1) }}</div>

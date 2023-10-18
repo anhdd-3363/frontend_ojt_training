@@ -19,6 +19,7 @@ export const loginMessage = {
 export const cartMessage = {
   success: "Thêm vào giỏ hàng thành công",
   outOfStock: "Số lượng trong kho hàng không đủ",
+  loginRequired: "Bạn cần đăng nhập để thêm vào giỏ hàng",
 };
 
 export const orderMessage = {

@@ -13,6 +13,7 @@ import {
 import { useCartStore } from "@stores/cart";
 import { useAuthStore } from "@stores/auth";
 import { postOrderApi, postOrderDetailApi } from "@apis/order";
+import { deleteCartItemApi } from "@apis/cart";
 import { useRouter } from "vue-router";
 
 const cartStore = useCartStore();
@@ -45,13 +46,15 @@ const handleOrder = async () => {
       const { id: orderId } = data;
       // post order detail to server
       props.list.forEach(async (item) => {
-        const { inCartQuantity: quantity, price } = item;
-        const orderDetail = { orderId, book: item, quantity, price };
+        const { inCartQuantity: quantity, book } = item;
+        const { price } = book;
+        const orderDetail = { orderId, book, quantity, price };
         await postOrderDetailApi(orderDetail);
+        await deleteCartItemApi(item.id);
       });
       $toast.success(orderMessage.success);
       routeToOrderResultPage(CREATE_ORDER_SUCCESS, orderId);
-      cartStore.removeAllItem();
+      cartStore.clearCart();
     } catch {
       $toast.error(orderMessage.error);
       routeToOrderResultPage(CREATE_ORDER_FAILED, 1);
@@ -62,8 +65,8 @@ const handleOrder = async () => {
 
 <template>
   <div class="my-6">
-    <template v-for="book in list" :key="book.id">
-      <CartItem :book="book" />
+    <template v-for="item in list" :key="item.id">
+      <CartItem :item="item" />
     </template>
   </div>
   <div v-if="list.length" class="mb-6 flex w-full items-center justify-end">

@@ -8,12 +8,17 @@ import IconProfile from "@icons/IconProfile.vue";
 import IconMenu from "@icons/IconMenu.vue";
 import IconHeart from "@icons/IconHeart.vue";
 import { useAuthStore } from "@stores/auth";
+import { useCartStore } from "@stores/cart";
 import { computed, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "@stores/product";
+import { useToast } from "vue-toast-notification";
+import { cartMessage } from "@locales/vi/messages";
 
+const $toast = useToast();
 const productStore = useProductStore();
 const authStore = useAuthStore();
+const cartStore = useCartStore();
 const router = useRouter();
 const user = computed(() => authStore.userInfo);
 const isHidden = ref(true);
@@ -32,12 +37,23 @@ const style = reactive({
 });
 
 const handleLogout = () => {
+  cartStore.clearCart();
   authStore.logout();
 };
 
 const handleClick = (path) => {
   isHidden.value = true;
   router.push(path);
+};
+
+const handleClickCart = () => {
+  isHidden.value = true;
+  if (!authStore.userInfo) {
+    $toast.error(cartMessage.loginRequired);
+    router.push({ name: "login" });
+  } else {
+    router.push({ name: "cart" });
+  }
 };
 </script>
 
@@ -111,7 +127,7 @@ const handleClick = (path) => {
               </div>
               <span> Yêu thích </span>
             </li>
-            <li @click="handleClick('/cart')" :class="style.link">
+            <li @click="handleClickCart()" :class="style.link">
               <div :class="style.iconWrap">
                 <IconCart />
               </div>
