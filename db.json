@@ -958,5 +958,119 @@
       "image": "https://upload.wikimedia.org/wikipedia/vi/0/07/Yoshito_Usui.jpg",
       "description": "Năm 1977, ông tốt nghiệp trường trung học kĩ thuật Saitama Kasukabe. Sau khi tốt nghiệp, ông nhập học tại một trường cao đẳng bán thời gian liên quan đến ngành thiết kế nhưng sau đó thì bỏ học. Vào năm 1979, ông tham gia vào một công ty quảng cáo có tên là POP Advertising. Ông ra mắt công chúng với tư cách là một họa sĩ vẽ tranh vào năm 1987 khi tạp chí Weekly Manga Action bắt đầu đăng tải series truyện tranh Darakuya Store Monogatari của ông. Vào tháng 8/1990, bộ truyện tranh Shin - cậu bé bút chì của ông bắt đầu được đăng tải trên tạp chí Weekly Manga Action, bộ truyện này ban đầu là một spin-off của nhân vật Shinnosuke Nikaido (二階堂信之介) từ truyện tranh Darakuya Store Monogatari. Một sê-ri phim hoạt hình dựa trên truyện tranh đã được bắt đầu thực hiện vào năm 1992. Và sau khi ra mắt vào năm 1993, bộ phim đã tạo ra một cơn sốt mang tên Shin - cậu bé bút chì. Một năm sau kể từ 1995, loạt truyện tranh Super Shufu Tsukimi-San của Usui đã được đăng tải trên tạp chí Manga Life."
     }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "book": {
+        "id": 2,
+        "name": "THÁNH THẠCH RAVE - TẬP 17 (TẶNG KÈM BOOKMARK PLUE)",
+        "slug": "thanh-thach-rave-tap-17-tang-kem-bookmark-plue",
+        "authorId": 2,
+        "price": 27000,
+        "quantity": 10,
+        "description": "Ma vương giáng lâm! Cuối cùng, Doryu – kẻ sở hữu bóng tối sâu thẳm đã tiết lộ hình dáng thật đầy đáng sợ của hắn!! Nhưng ta đâu đơn độc. Chỉ cần tất cả chúng ta hợp sức, nhất định sẽ đánh bại ngươi cho xem. Dù có phải thiêu rụi tính mạng này chăng nữa!!!",
+        "image": "https://product.hstatic.net/200000343865/product/12_1558b8f373cf43e88f3abe09ec49b8af_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 184,
+        "cover": "Bìa mềm",
+        "weight": "135 gram",
+        "audience": "Tuổi mới lớn (15 – 18)",
+        "categoryId": 1,
+        "author": {
+          "id": 2,
+          "name": "Hiro Mashima",
+          "slug": "hiro-mashima",
+          "description": "Mashima Hiro lớn lên ở tỉnh Nagano và trải qua tuổi thơ ở vùng núi cùng với ông nội. Bố của Mashima mất từ khi ông còn nhỏ và bố của Mashima là một họa sĩ với khao khát trở thành chuyên nghiệp. Ngay từ khi còn bé thì Mashima đã có ước mơ trở thành một họa sĩ và đặc biệt là có liên quan tới truyện tranh. Niềm yêu thích với vẽ của Mashima được khuyến khích bởi ông nội của ông, ông nội của ông là người đã tìm những cuốn manga bị bỏ đi về cho Mashima đọc và giúp ông luyện tập với chúng. Sau khi tốt nghiệp phổ thông thì Mashima quyết định tiếp tục theo đuổi giấc mơ của mình vào một trường về mỹ thuật đặc biệt là có dạy vẽ manga. Ông tin rằng đây là con đường giúp mình cải thiện được khả năng vẽ truyện tranh. Có điều kết quả không như mong muốn và ông đã bỏ học giữa chừng. Mashima chia sẻ là học những điều cơ bản vậy thì ông cảm thấy không giúp cho bản thân bước vào con đường chuyên nghiệp được. Và cuối cùng là ông quyết định tự học.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hiro_Mashima_in_2018.png"
+        }
+      },
+      "inCartQuantity": 1,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "book": {
+        "id": 10,
+        "name": "ĐẤT RỪNG PHƯƠNG NAM",
+        "slug": "dat-rung-phuong-nam",
+        "authorId": 10,
+        "price": 72900,
+        "quantity": 10,
+        "description": "Được viết bằng trái tim nhạy cảm, tài quan sát tinh tế, hiểu biết sâu sắc và vốn sống dồi dào, Đất rừng phương Nam là một trong những tác phẩm viết về Nam bộ xuất sắc nhất, làm bật lên trọn vẹn vẻ đẹp con người và thiên nhiên nơi đây. Mỗi lần đọc là mỗi lần tình yêu xứ sở được khơi gợi đến nao lòng",
+        "image": "https://product.hstatic.net/200000343865/product/dat-rung-phuong-nam_532d0fa40aab482f85159ed6a3b654ea_1edd78cb1d744015ac3fe61c1e9300e1_master.jpg",
+        "size": "14.5x20.5 cm",
+        "page": 340,
+        "cover": "Bìa mềm",
+        "weight": "355 gram",
+        "audience": "Thiếu niên (11 – 15)",
+        "categoryId": 2,
+        "author": {
+          "id": 10,
+          "name": "Đoàn Giỏi",
+          "slug": "doan-gioi",
+          "image": "https://file.hstatic.net/200000343865/file/upload_472bddf3bea74f0283cbf10a406c5a41.jpg",
+          "description": "Nhà văn Đoàn Giỏi (17-05-1925 – 02-04-1989) sinh ra tại thị xã Mỹ Tho, tỉnh Mỹ Tho, nay thuộc xã Tân Hiệp, huyện Châu Thành, tỉnh Tiền Giang. Tên khai sinh của ông là Đoàn Văn Giỏi. Ngoài bút danh Đoàn Giỏi, ông còn có các bút danh khác là Nguyễn Hoài, Nguyễn Phú Lễ, Huyền Tư.Vào năm 1939, sau khi học xong bậc tiểu học ở quê nhà, ông lên Sài Gòn tiếp tục học trung học. Vốn là người say mê hội họa, ông đã trốn gia đình và quyết định thi vào Trường Mỹ thuật Gia Định và theo học ở trường được 1 năm, sau đó ông chọn theo đuổi con đường văn chương của mình.Tác phẩm truyện ngắn đầu tay “Nhớ cố hương” (1943) là một trong những thành công của nhà văn Đoàn Giỏi. Tác phẩm được đăng trên số Xuân của tờ Nam Kỳ Tuần Báo qua sự xét duyệt và chọn lọc của nhà văn Hồ Biểu Chánh - một trong những đàn anh của làng văn thời bấy giờ. Năm 1945, khi Cách mạng Tháng Tám nổ ra, ông tạm gác lại công việc sáng tác của mình để trở về quê hương, tham gia kháng chiến. Sau chiến dịch Điện Biên Phủ thành công năm 1954, nhà văn Đoàn Giỏi được tập kết ra Bắc và công tác tại Đài Tiếng nói Việt Nam. Sau đó, ông chuyển sang làm việc ở Hội Nhà văn Việt Nam. Trong những năm tháng sống và làm việc ở Miền Bắc, ông cũng có điều kiện chuyên tâm vào sự nghiệp viết văn của mình. Hầu hết những tác phẩm của ông viết ra đều viết về con người và mảnh đất Nam Bộ. ác phẩm chính của ông có Người Nam thà chết không hàng (kịch thơ – 1947), Khí hùng đất nước (ký – 1948), Những dòng chữ máu Nam kỳ 1940 (ký – 1948); Đường về gia hương (truyện – 1948), Chiến sỹ Tháp Mười (kịch thơ – 1949), Giữ vững niềm tin (thơ – 1954); Cá bống mú ((truyện – 1956), Ngọn tầm vông (truyện ký – 1956); Trần Văn Ơn (truyện ký – 1955), Đất rừng phương Nam (truyện – 1957), Hoa hướng dương (truyện ngắn – 1960), Cuộc truy tầm kho vũ khí (truyện – 1962), Những chuyện lạ về cá (biên khảo – 1981), Tê giác trong ngàn xanh (biên khảo – 1982) Nhà văn Đoàn Giỏi vinh dự được nhận Giải thưởng Nhà nước về Văn học Nghệ thuật, năm 2001. Những trang viết của Đoàn Giỏi đã mang đến cho người đọc những hình ảnh hết sức sinh động về thiên nhiên và con người nơi miền Nam của Tổ quốc,với lòng thương nhớ da diết rẻo đất phương Nam, cộng với một vốn sống phong phú, tác phẩm của Đoàn Giỏi có một giá trị lớn trong việc bồi đắp vốn hiểu biết cũng như tình yêu quê hương, đất nước cho người đọc.  Khi xây dựng tác phẩm, ngòi bút của Đoàn Giỏi thể hiện rõ tính chất phác, hồn nhiên rất Nam Bộ. Mặt khác, bạn đọc có thể cảm nhận ít nhiều kỹ  thuật của hội họa trong nghệ thuật dựng cảnh của ông. “Đất rừng Phương Nam” là tác phẩm làm nên tên tuổi nhà văn Đoàn Giỏi, gắn liền với thời điểm ra đời của NXB Kim Đồng, vào tháng 6 năm 1957. Các tác phẩm nổi tiếng của Đoàn Giỏi đã được NXB Kim Đồng xuất bản: “Đất rừng phương Nam”, “Những chuyện lạ về cá”, “Tê giác trong ngàn xanh”, “Cá bống mú”, “Rừng đêm xào xạc”, “Hoa hướng dương”, “Người thủy thủ già trên hòn đảo lưu đày”, “Cuộc truy tầm kho vũ khí”, “Trần Văn Ơn”  Tiểu thuyết “Đất rừng phương Nam” lấy bối cảnh câu chuyện rất đặc trưng của vùng Tây Nam bộ với rừng tràm bạt ngàn, dòng sông mênh mông, con đò bập bềnh, tôm cá đầy đàn. Đất rừng phương Nam đã mang đến người đọc nhiều thú vị về bối cảnh, con người, tập tục văn hóa của vùng nông thôn Nam bộ. Ông mượn hình ảnh một cậu bé bị lưu lạc trong thời kỳ kháng chiến chống Pháp ở Nam bộ để giới thiệu một vùng đất vô cùng giàu có, hào phóng và hùng vĩ với những con người trung hậu, trí dũng, một lòng một dạ theo kháng chiến. Tác phẩm gần như tập hợp tất cả đất rừng và người phương Nam. Có thể nói, “Đất rừng phương Nam” của Đoàn Giỏi như một xã hội của miền sông nước Tây Nam bộ thu nhỏ. Ở nơi đó, người đọc đã tìm thấy hình ảnh người dân của vùng đất phương Nam từ sông Tiền, sông Hậu trải dài đến Kiên Giang – Rạch Giá, rồi xuống tận rừng U Minh, sau đó dừng lại ở Năm Căn - Cà Mau. Bối cảnh trong “Đất rừng phương Nam” là cả một đất trời thiên nhiên ưu đãi, cánh đồng bát ngát mênh mông, sóng nước rì rầm, rừng rậm bạt ngàn trù phú, thú rừng hoang dã muôn loài… Sự tài tình của Đoàn Giỏi là như tái tạo lại bối cảnh sông nước, con người từ thuở ông cha ta còn mang gươm mở cõi. “Đất rừng Phương Nam” (1957) của Đoàn Giỏi không chỉ là tác phẩm phổ biến trong giới học sinh – sinh viên. Đối với độc giả khắp nơi trên mọi miền đất nước, họ xem tác phẩm ấy như một áng văn về con người, về vùng đất Nam bộ khá điển hình. “Đất rừng phương Nam” càng phổ biến khi được dịch ra nhiều thứ tiếng: Nga, Ba Lan, Trung Quốc, Đức, Tây Ban Nha… Từ tiểu thuyết “Đất rừng phương Nam”, hãng phim truyền hình thành phố Hồ Chí Minh (TFS) đã sản xuất thành bộ phim “Đất phương Nam” dài 11 tập. Nguyễn Vinh Sơn viết kịch bản và đạo diễn. Hội Điện ảnh Việt Nam đã trao giải A cho đạo diễn vào năm 1997. Thành công từ những tác phẩm đầu tay, nhà văn như được như được chắp cánh, niềm đam mê thúc đẩy ông một cách mạnh mẽ đi vào con đường văn chương, chọn văn chương để làm điểm tựa. Ông còn tìm đến văn chương như sự chia sẻ, động viên trong những ngày sống xa quê. Và hơn thế nữa, Đoàn Giỏi đã chọn con đường văn chương để làm sự nghiệp trọn đời mình.   "
+        }
+      },
+      "inCartQuantity": 1,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "book": {
+        "id": 7,
+        "name": "SPY X FAMILY - TẬP 9 (TẶNG KÈM STANDEE PVC)",
+        "slug": "spy-x-family-tap-9-tang-kem-standee-pvc",
+        "authorId": 7,
+        "price": 22500,
+        "quantity": 10,
+        "description": "Trận giao tranh giữa Yor và đám sát thủ đã đi đến hồi kết…!! Cùng lúc đó, bom trên chiếc du thuyền hạng sang cũng được cài xong! Cảm nhận được mối nguy hiểm, Loid và Anya đều tận lực cứu vãn tình hình theo cách của riêng mình…",
+        "image": "https://product.hstatic.net/200000343865/product/9_b750d3e3ab2b4564abafdc54438db5b3_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 210,
+        "cover": "Bìa mềm",
+        "weight": "140 gram",
+        "audience": "Tuổi mới lớn (15 – 18)",
+        "categoryId": 2,
+        "author": {
+          "id": 7,
+          "name": "Tatsuya Endo",
+          "slug": "tatsuya-endo",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Tatsuyaendo_pic_sketch.png",
+          "description": "Endō Tatsuya [遠藤達哉] sinh ngày 23 tháng 7 năm 1980 tại tỉnh Ibaraki. Ngay từ khi còn nhỏ, Endo đã mong muốn trở thành một họa sĩ truyện tranh. Gia đình anh gồm có một người cha và một người anh trai. Các diễn viên yêu thích của cô là Bruce Lee, Hiroshi Abe, Meg Ryan và Audrey Tautou. Của chúng mangaka yêu thích Chúng tôi Akira Toriyama, Hiroyuki Nishimori và Minetarō Mochizuki.Sở thích của anh ấy bao gồm trượt tuyết, bóng rổ và chơi vợt. Endo làm trợ lý cho mangaka của Blue Exorcist và Fire Punch. Anh được cố vấn bởi các họa sĩ manga Yasuhiro Kanō và Yoshiyuki Nishi.Endo bắt đầu sự nghiệp của mình với việc tạo ra một bức ảnh, sau đó tạo ra một số manga không mấy thành công. Cùng với biên tập viên Shihei Lin, cả hai bắt đầu lên kế hoạch cho một tác phẩm với mục đích xuất hiện trong Shounen Jump.Manga này sẽ kết hợp những gì Lin tin là điểm mạnh của các tác phẩm trước của Endo, do đó tạo nên Spy × Family. Sự đón nhận tốt đến nỗi việc đăng nhiều kỳ đã được quyết định ngay cả trước một cuộc họp chính thức. Ngày nay nó đã trở thành một trong những bộ truyện tranh thành công nhất trong ngành.Ngoài các tác phẩm gốc và công việc phụ tá của mình, Endo còn là họa sĩ minh họa cho One-Shots và Light Novel như Okujoo Tantei Okutan, Yamamoto-kun's Distress và Kuroniko the Exile."
+        }
+      },
+      "inCartQuantity": 1,
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "book": {
+        "id": 16,
+        "name": "COMBO DORAEMON PLUS (6 TẬP)",
+        "slug": "combo-doraemon-plus-6-tap",
+        "authorId": 14,
+        "price": 112200,
+        "quantity": 10,
+        "description": "Dù bạn có là ai, có đọc bao nhiêu lần thì vẫn thấy thú vị!! Vượt qua thời gian, vượt qua thế hệ, đây là danh tác luôn được yêu quý và đón nhận!! Doraemon Plus là tuyển tập những truyện ngắn về Doraemon và các bạn của tác giả Fujiko F Fujio từng được đăng rải rác trên các tạp chí học tập Nhật Bản.",
+        "image": "https://product.hstatic.net/200000343865/product/cb_d8de4b12166449d0b0894467e3b82849_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 192,
+        "cover": "Bìa mềm",
+        "weight": "960 gram",
+        "audience": "Nhi đồng (6 – 11)",
+        "categoryId": 3,
+        "author": {
+          "id": 14,
+          "name": "Fujiko F Fujio",
+          "slug": "fujiko-f-fujio",
+          "image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Fujiko_Fujio.jpg/220px-Fujiko_Fujio.jpg",
+          "description": "Ông Motoo Abiko sinh năm 1934 tại tỉnh Toyama. Ngay từ nhỏ, tác giả Doraemon đã bộc lộ sở thích vẽ manga. Vào năm 1953, Motoo Abiko và Hiroshi Fujimoto cùng nhau xuất bản tác phẩm đầu tay có tên là The Last World War."
+        }
+      },
+      "inCartQuantity": 1,
+      "userId": 2
+    }
   ]
 }
